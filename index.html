@@ -9,15 +9,15 @@
 
     body {
       margin: 0;
-      background: linear-gradient(-45deg, #1b1b1b, #0d0d0d, #1f1f1f, #121212);
+      background: linear-gradient(-45deg, #000000, #0d0d0d, #1f1f1f, #121212);
       background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      animation: buddhaFlow 20s ease infinite;
       font-family: 'Kanit', sans-serif;
       color: white;
       overflow-x: hidden;
     }
 
-    @keyframes gradientBG {
+    @keyframes buddhaFlow {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
@@ -105,6 +105,8 @@
       margin-top: 30px;
       display: flex;
       gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .platforms a {
@@ -113,13 +115,32 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
-      background: linear-gradient(45deg, #ff0099, #493240);
-      box-shadow: 0 0 10px #ff0099;
-      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+      background-color: #000;
     }
 
-    .platforms a:hover {
-      transform: scale(1.1);
+    .platforms a::before {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(45deg, red, blue, lime, yellow, magenta);
+      z-index: -1;
+      border-radius: 40px;
+      background-size: 400%;
+      animation: animateBorder 6s linear infinite;
+    }
+
+    @keyframes animateBorder {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 400% 0;
+      }
     }
 
     footer {
@@ -173,18 +194,6 @@
       font-size: 18px;
       cursor: pointer;
       box-shadow: 0 0 8px #00ffcc;
-    }
-
-    body {
-      background: linear-gradient(-45deg, #f5e6cc, #ffd9a0, #ffe6cc, #fff7e6);
-      background-size: 400% 400%;
-      animation: buddhaFlow 20s ease infinite;
-    }
-
-    @keyframes buddhaFlow {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
     }
   </style>
 </head>
